@@ -1,0 +1,26 @@
+
+
+   T1            count      T2
+                  0
+    0  LOAD            
+    						LOAD  0
+    1  INC             
+    						INC   1
+   	1  STOR       1   
+   				  1	   STOR   1
+   				  
+   				  
+
+   T1            count      T2
+                  0
+    0  LOAD            
+    1  INC             
+   	1  STOR       1   
+   				  
+      						LOAD  1
+    						INC   2
+   				  2   	   STOR   2   				  
+   				  
+   				  
+                          Synchronized   ReentrantLock   Semaphore
+critical section   			   +	          +             +  
