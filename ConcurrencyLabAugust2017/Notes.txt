@@ -24,3 +24,39 @@
    				  
                           Synchronized   ReentrantLock   Semaphore
 critical section   			   +	          +             +  
+
+
+Read Accept Read Accept
+
+            RARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARA
+
+Thread 1 -> RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+             \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+Thread 2 ->   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+Thread 1 -> RRRRRR RRRRRR RRRRRR RRRRRR RRRRRR RRRRRR RRRRR RRRR
+                  \      \      \      \      \      \     \    \
+Thread 2 ->        AAAAAA AAAAAA AAAAAA AAAAAA AAAAAA AAAAA AAAA AAAA
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
