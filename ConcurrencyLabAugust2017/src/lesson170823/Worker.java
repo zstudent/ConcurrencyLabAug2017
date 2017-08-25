@@ -4,6 +4,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.Executor;
 
+import lesson170821.Utils;
+
 public class Worker implements Executor {
 	
 	private Queue<Runnable> tasks = new LinkedList<>();
@@ -14,14 +16,19 @@ public class Worker implements Executor {
 	
 	@Override
 	public void execute(Runnable task) {
-		tasks.offer(task);
+		synchronized (tasks) {
+			tasks.offer(task);
+			tasks.notify();
+			System.out.println("notified");
+			Utils.pause(3000);
+		}
 	}
 	
 	private void process() {
 		while (true) {
 			Runnable task = null;
 			synchronized (tasks) {
-				while (tasks.isEmpty()) { // to deal with spruious wakeup
+				while (tasks.isEmpty()) { // to deal with spurious wakeup
 					try {
 						tasks.wait();
 					} catch (InterruptedException e) {
